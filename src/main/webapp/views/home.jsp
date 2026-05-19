@@ -42,9 +42,11 @@
         <a href="<%= request.getContextPath() %>/views/add_hostel.jsp">+ Submit Hostel</a>
         <a href="<%= request.getContextPath() %>/myBookings">My Bookings</a>
         <a href="<%= request.getContextPath() %>/myComplaints">Complaints</a>
+        <a href="<%= request.getContextPath() %>/views/about_us.jsp">About Us</a>
         <a href="<%= request.getContextPath() %>/logout" class="btn-nav">Logout</a>
         <% } else { %>
         <a href="<%= request.getContextPath() %>/viewHostels">Browse</a>
+        <a href="<%= request.getContextPath() %>/views/about_us.jsp">About Us</a>
         <a href="<%= request.getContextPath() %>/views/login.jsp">Log In</a>
         <a href="<%= request.getContextPath() %>/views/register.jsp" class="btn-nav">Sign Up</a>
         <% } %>
@@ -275,6 +277,7 @@
             <h4>Quick Links</h4>
             <a href="<%= request.getContextPath() %>/views/home.jsp">Home</a>
             <a href="<%= request.getContextPath() %>/viewHostels">Browse Hostels</a>
+            <a href="<%= request.getContextPath() %>/views/about_us.jsp">About Us</a>
             <% if (isAdmin) { %>
             <a href="<%= request.getContextPath() %>/admin/hostels">Manage Hostels</a>
             <a href="<%= request.getContextPath() %>/admin/bookings">Manage Bookings</a>
