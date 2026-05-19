@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaints Management — Admin</title>
+    <title>Complaints Management - Admin</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
     <style>
         .complaint-row {
@@ -90,6 +90,7 @@
     <div class="nav-links">
         <a href="<%= request.getContextPath() %>/admin/hostels" class="btn-nav">Hostel Approvals</a>
         <a href="<%= request.getContextPath() %>/admin/bookings">Bookings</a>
+        <a href="<%= request.getContextPath() %>/admin/users">Users</a>
         <a href="<%= request.getContextPath() %>/viewComplaints">Complaints</a>
         <a href="<%= request.getContextPath() %>/logout">Logout</a>
     </div>
@@ -99,13 +100,14 @@
     <aside class="admin-sidebar">
         <div class="sidebar-section">
             <span class="sidebar-label">Management</span>
-            <a href="<%= request.getContextPath() %>/admin/hostels" class="sidebar-link">🏠 Hostel Approvals</a>
-            <a href="<%= request.getContextPath() %>/admin/bookings" class="sidebar-link">📋 Bookings</a>
-            <a href="<%= request.getContextPath() %>/viewComplaints" class="sidebar-link active">📢 Complaints</a>
+            <a href="<%= request.getContextPath() %>/admin/hostels" class="sidebar-link">Hostel Approvals</a>
+            <a href="<%= request.getContextPath() %>/admin/bookings" class="sidebar-link">Bookings</a>
+            <a href="<%= request.getContextPath() %>/admin/users" class="sidebar-link">Users</a>
+            <a href="<%= request.getContextPath() %>/viewComplaints" class="sidebar-link active">Complaints</a>
         </div>
         <div class="sidebar-section">
             <span class="sidebar-label">Account</span>
-            <a href="<%= request.getContextPath() %>/logout" class="sidebar-link">🚪 Logout</a>
+            <a href="<%= request.getContextPath() %>/logout" class="sidebar-link">Logout</a>
         </div>
     </aside>
 
@@ -114,9 +116,9 @@
         <p class="page-subtitle">Review and manage user complaints</p>
 
         <% if ("success".equalsIgnoreCase(updated)) { %>
-        <div class="alert alert-success">✅ Complaint status updated.</div>
+        <div class="alert alert-success">Complaint status updated.</div>
         <% } else if ("error".equalsIgnoreCase(updated)) { %>
-        <div class="alert alert-error">❌ Could not update complaint status.</div>
+        <div class="alert alert-error">Could not update complaint status.</div>
         <% } %>
 
         <% if (complaints != null && !complaints.isEmpty()) { %>
@@ -132,7 +134,7 @@
             <div class="complaint-row">
                 <div class="complaint-detail">
                     <div class="complaint-subject"><%= c.getSubject() %></div>
-                    <div class="complaint-user">🏠 <%= c.getHostelName() %></div>
+                    <div class="complaint-user">Hostel: <%= c.getHostelName() %></div>
                     <div class="complaint-message"><%= c.getMessage() %></div>
                 </div>
                 <div class="complaint-user"><%= c.getUserName() %></div>
@@ -152,7 +154,7 @@
         </div>
         <% } else { %>
         <div class="empty-state">
-            <div class="empty-icon">📢</div>
+            <div class="empty-icon">Complaints</div>
             <h3>No complaints yet</h3>
             <p>No user complaints have been submitted.</p>
         </div>
