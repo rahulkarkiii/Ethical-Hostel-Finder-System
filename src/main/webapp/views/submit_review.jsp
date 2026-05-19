@@ -41,7 +41,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write a Review — HostelFinder</title>
+    <title>Write a Review - HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
     <style>
         .review-page {
@@ -99,7 +99,7 @@
     <a href="<%= request.getContextPath() %>/views/home.jsp" class="logo">Hostel<span>Finder</span></a>
     <div class="nav-links">
         <% if (loggedIn) { %>
-        <a href="<%= request.getContextPath() %>/views/home.jsp">🏠 Home</a>
+        <a href="<%= request.getContextPath() %>/views/home.jsp">Home</a>
         <a href="<%= request.getContextPath() %>/myBookings">My Bookings</a>
         <a href="<%= request.getContextPath() %>/logout" class="btn-nav">Logout</a>
         <% } else { %>
@@ -111,18 +111,18 @@
 
 <div class="review-page">
     <div class="review-container">
-        <a href="<%= request.getContextPath() %>/views/home.jsp" style="color: var(--saffron); font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 24px;">← Back to Hostels</a>
+        <a href="<%= request.getContextPath() %>/views/home.jsp" style="color: var(--saffron); font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 24px;">Back to Hostels</a>
 
         <h1 class="page-title">Write a Review</h1>
         <p class="page-subtitle">Share your experience to help other travelers</p>
 
         <% if (!loggedIn) { %>
-        <div class="alert alert-error">❌ You must be logged in to write a review.</div>
+        <div class="alert alert-error">You must be logged in to write a review.</div>
         <p style="text-align: center; margin-top: 20px;">
             <a href="<%= request.getContextPath() %>/views/login.jsp" class="btn btn-primary" style="display: inline-block;">Sign In</a>
         </p>
         <% } else if (hostel == null) { %>
-        <div class="alert alert-error">❌ Hostel not found.</div>
+        <div class="alert alert-error">Hostel not found.</div>
         <% } else if (errorMessage != null) { %>
         <div class="alert alert-error"><%= errorMessage %></div>
         <p style="text-align: center; margin-top: 20px;">
@@ -130,17 +130,17 @@
         </p>
         <% } else if (canReview) { %>
         <% if ("already_reviewed".equalsIgnoreCase(reviewResult)) { %>
-        <div class="alert alert-info">ℹ️ You have already reviewed this hostel.</div>
+        <div class="alert alert-info">You have already reviewed this hostel.</div>
         <% } else if ("no_booking".equalsIgnoreCase(reviewResult)) { %>
-        <div class="alert alert-info">ℹ️ You can review only hostels you have booked.</div>
+        <div class="alert alert-info">You can review only hostels you have booked.</div>
         <% } else if ("error".equalsIgnoreCase(reviewResult)) { %>
-        <div class="alert alert-error">❌ Could not submit review. Please try again.</div>
+        <div class="alert alert-error">Could not submit review. Please try again.</div>
         <% } %>
 
         <div class="review-form">
             <div class="hostel-info">
-                <h3>🏠 <%= hostel.getName() %></h3>
-                <p style="color: var(--light); margin-bottom: 0;">📍 <%= hostel.getLocation() %></p>
+                <h3><%= hostel.getName() %></h3>
+                <p style="color: var(--light); margin-bottom: 0;">Location: <%= hostel.getLocation() %></p>
             </div>
 
             <form action="<%= request.getContextPath() %>/submitReview" method="post">
@@ -150,7 +150,7 @@
                     <label>Your Rating</label>
                     <div class="rating-input" id="ratingContainer">
                         <% for (int i = 1; i <= 5; i++) { %>
-                        <button type="button" class="star-btn" data-rating="<%= i %>"><%= i %>⭐</button>
+                        <button type="button" class="star-btn" data-rating="<%= i %>"><%= i %> star</button>
                         <% } %>
                     </div>
                     <input type="hidden" name="rating" id="ratingInput" required>
