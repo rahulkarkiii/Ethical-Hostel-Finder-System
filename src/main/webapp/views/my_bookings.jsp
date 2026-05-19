@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookings — HostelFinder</title>
+    <title>My Bookings - HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         <a href="<%= request.getContextPath() %>/views/home.jsp">Home</a>
         <a href="<%= request.getContextPath() %>/views/add_hostel.jsp">+ Submit Hostel</a>
         <a href="<%= request.getContextPath() %>/myBookings">My Bookings</a>
-        <a href="<%= request.getContextPath() %>/myComplaints">📢 Complaints</a>
+        <a href="<%= request.getContextPath() %>/myComplaints">Complaints</a>
         <a href="<%= request.getContextPath() %>/logout" class="btn-nav">Logout</a>
     </div>
 </nav>
@@ -35,19 +35,19 @@
     <p class="page-subtitle">Track all your hostel booking requests below</p>
 
     <% if ("success".equalsIgnoreCase(booked)) { %>
-    <div class="alert alert-success">✅ Booking request sent successfully. Admin will review it soon.</div>
+    <div class="alert alert-success">Booking request sent successfully. Admin will review it soon.</div>
     <% } else if ("duplicate".equalsIgnoreCase(booked)) { %>
-    <div class="alert alert-info">ℹ️ You already have an active booking request for this hostel.</div>
+    <div class="alert alert-info">You already have an active booking request for this hostel.</div>
     <% } else if ("error".equalsIgnoreCase(booked)) { %>
-    <div class="alert alert-error">❌ We could not create your booking request. Please try again.</div>
+    <div class="alert alert-error">We could not create your booking request. Please try again.</div>
     <% } %>
 
     <% if (bookings != null && !bookings.isEmpty()) { %>
     <% for (Booking b : bookings) { %>
     <div class="booking-card">
         <div>
-            <div class="hostel-name">🏠 <%= b.getHostelName() %></div>
-            <div class="booking-date">📅 Booked on <%= b.getCreatedAt() %></div>
+            <div class="hostel-name"><%= b.getHostelName() %></div>
+            <div class="booking-date">Booked on <%= b.getCreatedAt() %></div>
         </div>
         <span class="status-badge status-<%= b.getStatus().toLowerCase() %>">
                 <%= b.getStatus().substring(0,1).toUpperCase() + b.getStatus().substring(1) %>
@@ -56,7 +56,7 @@
     <% } %>
     <% } else { %>
     <div class="empty-state">
-        <div class="empty-icon">📋</div>
+        <div class="empty-icon">Bookings</div>
         <h3>No bookings yet</h3>
         <p>Browse available hostels and make your first booking!</p>
         <a href="<%= request.getContextPath() %>/views/home.jsp" class="btn btn-primary" style="margin-top:20px;">Browse Hostels</a>
