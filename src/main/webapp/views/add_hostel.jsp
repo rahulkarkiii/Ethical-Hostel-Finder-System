@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Hostel — HostelFinder</title>
+     <title>Submit Hostel - HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
 </head>
 <body>
@@ -34,13 +34,13 @@
     </div>
 
     <% if ("pending".equalsIgnoreCase(submitted)) { %>
-    <div class="alert alert-info">✅ Hostel submitted. It is currently pending admin approval.</div>
+    <div class="alert alert-info">Hostel submitted. It is currently pending admin approval.</div>
     <% } %>
 
     <%
         String error = (String) request.getAttribute("error");
         if (error != null) {
-    %><div class="alert alert-error">❌ <%= error %></div><% } %>
+    %><div class="alert alert-error"><%= error %></div><% } %>
 
     <div class="form-card">
         <form action="<%= request.getContextPath() %>/addHostel" method="post" enctype="multipart/form-data">
@@ -66,7 +66,7 @@
             <div class="form-group">
                 <label>Hostel Photo</label>
                 <input type="file" name="image" accept="image/*">
-                <p style="font-size:0.78rem;color:var(--light);margin-top:4px;">JPG, PNG or WebP · Max 5MB</p>
+                <p style="font-size:0.78rem;color:var(--light);margin-top:4px;">JPG, PNG or WebP - Max 5MB</p>
             </div>
             <div style="display:flex;gap:12px;margin-top:8px;">
                 <button type="submit" class="btn btn-primary" style="padding:13px 32px;">Submit for Review</button>
