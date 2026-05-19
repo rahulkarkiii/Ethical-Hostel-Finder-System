@@ -26,8 +26,8 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        if (password.trim().length() < 8) {
-            request.setAttribute("error", "Password must be at least 8 characters long.");
+        if (!ValidationUtil.isStrongPassword(password)) {
+            request.setAttribute("error", "Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.");
             request.getRequestDispatcher("/views/register.jsp").forward(request, response);
             return;
         }
