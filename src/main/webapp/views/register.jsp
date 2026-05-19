@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register — HostelFinder</title>
+    <title>Register - HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
         <%
             String error = (String) request.getAttribute("error");
             if (error != null) {
-        %><div class="alert alert-error">❌ <%= error %></div><% } %>
+        %><div class="alert alert-error"><%= error %></div><% } %>
 
         <form action="<%= request.getContextPath() %>/register" method="post">
             <div class="form-group">
@@ -32,7 +32,10 @@
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Min. 8 characters" minlength="8" required>
+                <input type="password" name="password" placeholder="At least 8 characters" minlength="8"
+                       pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                       title="Must be 8+ characters with uppercase, lowercase, number, and symbol" required>
+                <p style="font-size:0.78rem;color:var(--light);margin-top:6px;">Use 8+ characters with uppercase, lowercase, number, and symbol.</p>
             </div>
             <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px;padding:13px;">Create Account</button>
         </form>
