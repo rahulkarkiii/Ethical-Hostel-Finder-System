@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Complaints — HostelFinder</title>
+    <title>My Complaints - HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
     <style>
         .complaint-card {
@@ -77,9 +77,9 @@
 <nav class="navbar">
     <a href="<%= request.getContextPath() %>/views/home.jsp" class="logo">Hostel<span>Finder</span></a>
     <div class="nav-links">
-        <a href="<%= request.getContextPath() %>/views/home.jsp">🏠 Home</a>
+        <a href="<%= request.getContextPath() %>/views/home.jsp">Home</a>
         <a href="<%= request.getContextPath() %>/myBookings">My Bookings</a>
-        <a href="<%= request.getContextPath() %>/myComplaints">📢 Complaints</a>
+        <a href="<%= request.getContextPath() %>/myComplaints">Complaints</a>
         <a href="<%= request.getContextPath() %>/logout" class="btn-nav">Logout</a>
     </div>
 </nav>
@@ -90,11 +90,11 @@
         <p class="page-subtitle">Submit and track complaints about hostels</p>
 
         <% if ("success".equalsIgnoreCase(submitted)) { %>
-        <div class="alert alert-success">✅ Your complaint has been submitted successfully. Admin will review it soon.</div>
+        <div class="alert alert-success">Your complaint has been submitted successfully. Admin will review it soon.</div>
         <% } else if ("no_booking".equalsIgnoreCase(submitted)) { %>
-        <div class="alert alert-info">ℹ️ You can submit complaints only for hostels you have booked.</div>
+        <div class="alert alert-info">You can submit complaints only for hostels you have booked.</div>
         <% } else if ("error".equalsIgnoreCase(submitted)) { %>
-        <div class="alert alert-error">❌ Failed to submit complaint. Please try again.</div>
+        <div class="alert alert-error">Failed to submit complaint. Please try again.</div>
         <% } %>
 
         <div style="margin-bottom: 32px;">
@@ -103,7 +103,7 @@
                 + Submit New Complaint
             </button>
             <% } else { %>
-            <div class="alert alert-info">ℹ️ Book a hostel first, then you can submit a complaint for that hostel.</div>
+            <div class="alert alert-info">Book a hostel first, then you can submit a complaint for that hostel.</div>
             <% } %>
         </div>
 
@@ -151,7 +151,7 @@
             <% for (Complaint c : complaints) { %>
             <div class="complaint-card">
                 <div class="complaint-info">
-                    <div class="complaint-subject">🏠 <%= c.getHostelName() %></div>
+                    <div class="complaint-subject"><%= c.getHostelName() %></div>
                     <div class="complaint-hostel"><strong>Complaint:</strong> <%= c.getSubject() %></div>
                     <div class="complaint-message"><%= c.getMessage() %></div>
                     <div class="complaint-date">Submitted: <%= c.getCreatedAt() %></div>
@@ -166,7 +166,7 @@
         </div>
         <% } else { %>
         <div class="empty-state">
-            <div class="empty-icon">📢</div>
+            <div class="empty-icon">Complaints</div>
             <h3>No complaints yet</h3>
             <p>You haven't submitted any complaints. If you have issues with a hostel, submit a complaint.</p>
             <% if (hasBookedHostels) { %>
