@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews - <%= hostelName != null ? hostelName : "Hostel" %> | HostelFinder</title>
+    <title>Reviews — <%= hostelName != null ? hostelName : "Hostel" %> | HostelFinder</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
     <style>
         .reviews-container {
@@ -106,7 +106,7 @@
 <nav class="navbar">
     <a href="<%= request.getContextPath() %>/views/home.jsp" class="logo">Hostel<span>Finder</span></a>
     <div class="nav-links">
-        <a href="<%= request.getContextPath() %>/views/home.jsp">Home</a>
+        <a href="<%= request.getContextPath() %>/views/home.jsp">🏠 Home</a>
         <a href="<%= request.getContextPath() %>/myBookings">My Bookings</a>
         <a href="<%= request.getContextPath() %>/logout" class="btn-nav">Logout</a>
     </div>
@@ -115,14 +115,14 @@
 <div class="reviews-page">
     <div class="reviews-container">
         <div style="margin-bottom: 32px;">
-            <a href="<%= request.getContextPath() %>/views/home.jsp" style="color: var(--saffron); font-weight: 600; font-size: 0.9rem;">Back to Hostels</a>
+            <a href="<%= request.getContextPath() %>/views/home.jsp" style="color: var(--saffron); font-weight: 600; font-size: 0.9rem;">← Back to Hostels</a>
         </div>
 
         <% if (hostelName != null) { %>
         <h1 class="page-title">Reviews for <%= hostelName %></h1>
 
         <% if ("success".equalsIgnoreCase(reviewResult)) { %>
-        <div class="alert alert-success">Review submitted successfully.</div>
+        <div class="alert alert-success">✅ Review submitted successfully.</div>
         <% } %>
 
         <% if (averageRating != null && averageRating > 0) { %>
@@ -134,7 +134,7 @@
                         <%
                             double rating = averageRating;
                             for (int i = 0; i < 5; i++) {
-                                out.print(i < Math.round(rating) ? "*" : ".");
+                                System.out.print(i < Math.round(rating) ? "⭐" : "☆");
                             }
                         %>
                     </div>
@@ -157,8 +157,8 @@
                         <div class="review-date"><%= r.getCreatedAt() %></div>
                     </div>
                     <div class="review-rating">
-                        <% for (int i = 0; i < r.getRating(); i++) { %>*<% } %>
-                        <% for (int i = r.getRating(); i < 5; i++) { %>.<% } %>
+                        <% for (int i = 0; i < r.getRating(); i++) { %>⭐<% } %>
+                        <% for (int i = r.getRating(); i < 5; i++) { %>☆<% } %>
                     </div>
                 </div>
                 <div class="review-text"><%= r.getReviewText() %></div>
@@ -167,16 +167,16 @@
         </div>
         <% } else { %>
         <div class="empty-state" style="margin-top: 40px;">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">Reviews</div>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">⭐</div>
             <h3>No reviews yet</h3>
-            <p>Be the first to review this hostel!</p>
+            <p>Be the first to review this hostel!!!</p>
             <a href="<%= request.getContextPath() %>/views/submit_review.jsp?hostelId=<%= hostelId %>" class="btn btn-primary" style="margin-top: 20px;">Write a Review</a>
         </div>
         <% } %>
         <% } else { %>
         <div class="empty-state">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">Not found</div>
-            <h3>Hostel not found</h3>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">❌</div>
+            <h3>HOSTEL NOT FOUND</h3>
             <p>We couldn't find the hostel you're looking for.</p>
             <a href="<%= request.getContextPath() %>/views/home.jsp" class="btn btn-primary" style="margin-top: 20px;">Back to Home</a>
         </div>
